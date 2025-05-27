@@ -10,7 +10,6 @@ from openai import OpenAI
 from config_loader import load_config
 from data_handler import load_data_from_json
 from evaluation_processor import process_dialogs
-from analysis_reporter import analyze_results
 
 def extract_type_code(filename: str) -> str:
     '''extracts which implicature type is in the current JSON file based on the two-letter combination in the file name'''
@@ -26,7 +25,7 @@ def run_evaluation(config_path: str, args: argparse.Namespace):
     output directory and start iteration), sets up the output directory
     (handling overwrites), loads data, initializes the OpenAI client,
     runs the dialogue processing, saves the results into separate MCQ and
-    QA CSV files, and finally triggers the analysis of the results'''
+    QA CSV files'''
     
     print("--- Starting Evaluation ---")
     try:
@@ -144,16 +143,8 @@ def run_evaluation(config_path: str, args: argparse.Namespace):
         if save_error:
             print("Warning: One or more errors occurred during file saving.")
 
-        if not results_df.empty:
-            print("--- Analyzing Results ---")
-            analyze_results(results_df, results_dir, base_prefix)
-        else:
-            print("Skipping analysis as no results were generated or saved successfully.")
-
-        print("\n--- Evaluation Finished ---")
-
     except Exception as e:
-        print(f"\nAn unexpected error occurred during processing or analysis: {str(e)}")
+        print(f"\nAn unexpected error occurred during processing : {str(e)}")
         traceback.print_exc()
 
 

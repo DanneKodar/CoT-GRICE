@@ -4,8 +4,8 @@ import sys
 import os
 
 def load_config(config_path='config.yaml'):
+    '''loads the config file of choice'''
     try:
-
         with open(config_path, 'r') as file:
             config = yaml.safe_load(file)
             print(f"Loaded config from: {config_path}")

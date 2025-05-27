@@ -5,7 +5,7 @@ import os
 
 
 def get_model_response(client, messages, current_config, task_type):
-    
+    '''sends requests and recieves answers from the openai API'''
     model_config = current_config['model']
     default_max_tokens = model_config.get('max_tokens', 200)
     QA_max_tokens = 200

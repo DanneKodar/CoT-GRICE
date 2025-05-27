@@ -89,7 +89,7 @@ Options:
             elif prompt_style == 'zero-shot':
                 prompt_text = f"""Consider the dialogue context below, paying close attention to the final Question-Answer pair.
 
-Conversation History:
+Dialogue Context:
 {full_dialog_history_text}
 {current_turn_text}
 

@@ -2,8 +2,11 @@
 This is a repository for the code and results from the study "Chain-of-Thought and GRICE: The effect of Zero-shot CoT prompting on implicature understanding". The scripts were coded in cursor with the assistance from its built-in AI.
 
 The command line arguments that can be used for main_runner.py are:
+
 --config: Used to specify the path.
+
 --start_iteration: The position in the dataset that the user wishes to start the iteration from.
+
 --o: Is used to specify the output directory.
 
 The study's abstract:

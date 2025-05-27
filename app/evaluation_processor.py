@@ -101,7 +101,6 @@ Options:
 Choice (1-4):"""
             else:
                 print(f"Warning: Unknown prompt_style '{prompt_style}'. Defaulting to 'cot'.")
-                prompt_text = f"""Analyze the conversation history and the current turn... [CoT prompt as above] ..."""
 
 
             messages = [{"role": "user", "content": prompt_text}]

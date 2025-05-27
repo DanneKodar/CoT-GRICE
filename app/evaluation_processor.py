@@ -172,7 +172,7 @@ Choice (1-4):"""
 
             if prompt_style == 'zero-shot':
 
-                qa_prompt_text = f"""Based on the conversation history provided below: Answer the question about the conversation.
+                qa_prompt_text = f"""Based on the conversation history provided below and the question: Answer the question about the conversation.
 
     Conversation History:
     {full_dialog_history_text}

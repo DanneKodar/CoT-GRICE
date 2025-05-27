@@ -13,7 +13,7 @@ from evaluation_processor import process_dialogs
 from analysis_reporter import analyze_results
 
 def extract_type_code(filename: str) -> str:
-
+    '''extracts which implicature type is in the current JSON file based on the two-letter combination in the file name'''
     match = re.search(r'impl_dial_v0\.1_([a-z]{2})\.json$', filename, re.IGNORECASE)
     if match:
         return match.group(1).lower()
@@ -22,7 +22,12 @@ def extract_type_code(filename: str) -> str:
         return "unknown_type"
 
 def run_evaluation(config_path: str, args: argparse.Namespace):
-
+    '''loads the configuration, handles command-line arguments (especially
+    output directory and start iteration), sets up the output directory
+    (handling overwrites), loads data, initializes the OpenAI client,
+    runs the dialogue processing, saves the results into separate MCQ and
+    QA CSV files, and finally triggers the analysis of the results'''
+    
     print("--- Starting Evaluation ---")
     try:
         config = load_config(config_path)

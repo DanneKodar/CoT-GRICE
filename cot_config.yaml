@@ -1,0 +1,26 @@
+
+project:
+  name: "cot_grice_evaluation"
+
+model:
+  model: "gpt-3.5-turbo"
+  provider: "openai"
+  temperature: 0
+  max_tokens: 200
+  use_logit_bias: false
+  prompt_style: 'cot'
+
+output:
+  directory: "results"
+  overwrite: false
+
+data:
+#comment out all other paths than the one you want to use
+  path: "jsons/impl_dial_v0.1_cb.json"
+  path: "jsons/impl_dial_v0.1_ig.json"
+  path: "jsons/impl_dial_v0.1_li.json"
+  path: "jsons/impl_dial_v0.1_re.json"
+  path: "jsons/impl_dial_v0.1_st.json"
+
+#uncomment for testing
+#max_iterations: 100
